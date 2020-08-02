@@ -84,8 +84,7 @@ class App extends Component {
 
   displayFaceBox = (cords) => {
     console.log(cords);
-    this.setState({ box: [...cords] });
-    console.log(box);
+    this.setState({ box: [...this.state.box, cords] });
   };
 
   onInputChange = (event) => {
