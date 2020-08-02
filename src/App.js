@@ -26,7 +26,7 @@ const particlesOptions = {
 const initialState = {
   input: "",
   imageUrl: "",
-  box: {},
+  box: [],
   route: "signin",
   isSignedIn: false,
   user: {
@@ -91,6 +91,7 @@ class App extends Component {
   };
 
   onButtonSubmit = () => {
+    this.setState({ box: [] });
     this.setState({ imageUrl: this.state.input });
     fetch("https://fast-brook-94046.herokuapp.com/imageurl", {
       method: "post",
@@ -134,7 +135,6 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
-    console.log(box);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
