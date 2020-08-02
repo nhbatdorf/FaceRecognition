@@ -117,7 +117,10 @@ class App extends Component {
             .catch(console.log);
         }
         const faces = response.outputs[0].data.regions;
-        faces.forEach((face) => this.displayFaceBox(this.calcFaceLoc(face)));
+        faces.forEach((face) => {
+          console.log(this.calcFaceLoc(face));
+          this.displayFaceBox(this.calcFaceLoc(face));
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -133,7 +136,6 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
-    console.log(box);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
