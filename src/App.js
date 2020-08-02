@@ -44,7 +44,7 @@ class App extends Component {
     this.state = {
       input: "",
       imageUrl: "",
-      box: {},
+      box: [],
       route: "signin",
       isSignedIn: false,
       user: {
@@ -84,7 +84,7 @@ class App extends Component {
   };
 
   displayFaceBox = (box) => {
-    this.setState({ box: box });
+    this.setState({ box: [...box] });
   };
 
   onInputChange = (event) => {
@@ -117,8 +117,7 @@ class App extends Component {
             .catch(console.log);
         }
         const faces = response.outputs[0].data.regions;
-        console.log(faces);
-        this.displayFaceBox(faces.forEach((face) => this.calcFaceLoc(face)));
+        faces.forEach((face) => this.displayFaceBox(this.calcFaceLoc(face)));
       })
       .catch((err) => console.log(err));
   };
@@ -134,6 +133,7 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
+    console.log(box);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
