@@ -116,10 +116,9 @@ class App extends Component {
             })
             .catch(console.log);
         }
-        console.log(response);
         const faces = response.outputs[0].data.regions;
         console.log(faces);
-        this.displayFaceBox(faces.forEach(this.calcFaceLoc()));
+        this.displayFaceBox(faces.forEach((face) => this.calcFaceLoc(face)));
       })
       .catch((err) => console.log(err));
   };
