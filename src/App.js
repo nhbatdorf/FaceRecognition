@@ -70,7 +70,6 @@ class App extends Component {
   };
 
   calcFaceLoc = (data) => {
-    console.log(data);
     const clarifaiFace = data.region_info.bounding_box;
     const image = document.getElementById("inputImage");
     const width = Number(image.width);
@@ -85,6 +84,7 @@ class App extends Component {
 
   displayFaceBox = (box) => {
     this.setState({ box: [...box] });
+    console.log(box);
   };
 
   onInputChange = (event) => {
