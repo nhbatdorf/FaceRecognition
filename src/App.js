@@ -118,9 +118,9 @@ class App extends Component {
         }
         console.log(response);
         this.displayFaceBox(
-          response.outputs[0].data.regions.forEach(this.calcFaceLoc(data))
+          response.outputs[0].data.regions.forEach(this.calcFaceLoc())
         );
-        this.displayFaceBox(this.calcFaceLoc(response));
+        // this.displayFaceBox(this.calcFaceLoc(response));
       })
       .catch((err) => console.log(err));
   };
