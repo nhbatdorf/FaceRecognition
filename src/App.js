@@ -82,8 +82,9 @@ class App extends Component {
     };
   };
 
-  displayFaceBox = (box) => {
-    this.setState({ box: [...box] });
+  displayFaceBox = (cords) => {
+    console.log(cords);
+    this.setState({ box: [...cords] });
     console.log(box);
   };
 
